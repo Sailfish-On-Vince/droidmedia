@@ -22,6 +22,7 @@
 #include <CameraService.h>
 #include <binder/MemoryHeapBase.h>
 #include <MediaPlayerService.h>
+#include <AudioPolicyService.h>
 #if ANDROID_MAJOR >= 6
 #include <binder/BinderService.h>
 #if ANDROID_MAJOR < 7
@@ -52,6 +53,7 @@ main(int, char**)
 
     MediaPlayerService::instantiate();
     CameraService::instantiate();
+    AudioPolicyService::instantiate();
 
 // PermissionController and AppOps are needed on Android 4, but aren't allowed to be run here.
 #if ANDROID_MAJOR >= 5
