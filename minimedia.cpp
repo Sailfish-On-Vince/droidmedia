@@ -40,6 +40,7 @@
 
 #include <cutils/properties.h>
 
+#undef LOG_TAG
 #define LOG_TAG "MinimediaService"
 
 using namespace android;
@@ -89,6 +90,7 @@ main(int, char**)
 #if ANDROID_MAJOR >= 8
     sp<android::frameworks::sensorservice::V1_0::ISensorManager> sensorManager = new FakeSensorManager;
     status_t status = sensorManager->registerAsService();
+    (void)status;
 #endif
 #if ANDROID_MAJOR >= 7
     sp<hardware::ICameraService> gCameraService = interface_cast<hardware::ICameraService>(binder);
