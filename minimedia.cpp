@@ -58,6 +58,10 @@ main(int, char**)
     property_set("persist.media.metrics.enabled", "0");
     property_set("camera.fifo.disable", "1");
 
+#if ANDROID_MAJOR >= 9
+    FakeActivityManager::instantiate();
+#endif
+    
     MediaPlayerService::instantiate();
     CameraService::instantiate();
     AudioPolicyService::instantiate();
