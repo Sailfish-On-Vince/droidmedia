@@ -1,2 +1,0 @@
-DROIDMEDIA_32 := true
-FORCE_HAL:=1
