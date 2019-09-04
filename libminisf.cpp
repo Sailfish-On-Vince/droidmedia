@@ -46,3 +46,13 @@ void startMiniSurfaceFlinger()
     ProcessState::self()->startThreadPool();
 
 }
+extern "C"
+void stopMiniSurfaceFlinger()
+{
+    sp<IServiceManager> sm = defaultServiceManager();
+
+    if (sm->checkService(String16("SurfaceFlinger")) != NULL)
+    {
+        MiniSurfaceFlinger::shutdown();
+    }
+}
